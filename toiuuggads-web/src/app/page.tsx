@@ -1,65 +1,114 @@
-import Image from "next/image";
+import React from 'react';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+      {/* Header */}
+      <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-xl">
+                O
+              </div>
+              <span className="font-bold text-xl tracking-tight">OptimaAds AI</span>
+            </div>
+            <nav className="flex items-center gap-4">
+              <span className="text-sm font-medium text-slate-500">Welcome, Admin</span>
+              <div className="w-8 h-8 rounded-full bg-slate-200 border-2 border-white shadow-sm"></div>
+            </nav>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Smart Campaign Creator</h1>
+          <p className="mt-2 text-slate-500">Tự động phân tích website và khởi tạo chiến dịch Google Ads hoàn chỉnh với AI.</p>
         </div>
-      </main>
-    </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          {/* Form Cột Trái */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+              <h2 className="text-lg font-semibold mb-6 flex items-center gap-2">
+                <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Thông Số Khởi Tạo
+              </h2>
+              
+              <form className="space-y-5">
+                <div>
+                  <label htmlFor="url" className="block text-sm font-medium text-slate-700 mb-1">
+                    Website URL (Landing Page)
+                  </label>
+                  <input
+                    type="url"
+                    id="url"
+                    placeholder="https://hoanhashi.com"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm outline-none"
+                    defaultValue="https://hoanhashi.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="customerId" className="block text-sm font-medium text-slate-700 mb-1">
+                    Target Customer ID
+                  </label>
+                  <input
+                    type="text"
+                    id="customerId"
+                    placeholder="115-462-6623"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm outline-none font-mono"
+                    defaultValue="1154626623"
+                  />
+                  <p className="mt-1 text-xs text-slate-500">ID của tài khoản con nằm trong MCC.</p>
+                </div>
+                
+                <div className="pt-4">
+                  <button
+                    type="button"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-xl transition-colors shadow-sm shadow-blue-600/20 flex items-center justify-center gap-2 group"
+                  >
+                    <span>Khởi Tạo Chiến Dịch Chuẩn SEO</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* Console Output Cột Phải */}
+          <div className="lg:col-span-2">
+            <div className="bg-slate-900 rounded-2xl shadow-xl overflow-hidden flex flex-col h-full min-h-[400px]">
+              <div className="bg-slate-800 px-4 py-3 flex items-center gap-2 border-b border-slate-700">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                  <div className="w-3 h-3 rounded-full bg-amber-400"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                </div>
+                <span className="text-slate-400 text-xs font-mono ml-2">system-terminal ~ /optima-ai</span>
+              </div>
+              <div className="p-6 font-mono text-sm overflow-auto text-slate-300 space-y-2 flex-1">
+                <div className="text-slate-500">Sẵn sàng khởi tạo chiến dịch AI... Nhấn nút bên trái để bắt đầu.</div>
+                {/* Simulated Log Output */}
+                {/* <div className="text-blue-400">🚀 STARTING SMART CAMPAIGN CREATION FOR: https://hoanhashi.com</div>
+                <div className="text-slate-400">📡 Targeting Account: 1154626623 via MCC...</div>
+                <div className="text-yellow-400 mt-4">💰 AI BUDGET SUGGESTION:</div>
+                <div className="pl-4">- Avg CPC in market: 4,500 VND</div>
+                <div className="pl-4">- Recommended Daily Budget: 112,500 VND</div>
+                <div className="text-green-400 mt-4">✅ SUCCESS! Campaign created: customers/1154626623/campaigns/23640555024</div> */}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
   );
 }
