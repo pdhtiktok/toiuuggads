@@ -264,7 +264,7 @@ export default function Home() {
     }
 
     return (
-        <main className="min-h-screen bg-[#FAFAFA] text-zinc-900 selection:bg-indigo-500/10 font-sans selection:text-indigo-900">
+        <main className="min-h-screen bg-[#09090b] text-zinc-100 selection:bg-indigo-500/30 font-sans selection:text-indigo-200">
             {/* Background Glow */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/10 blur-[120px] rounded-full" />
@@ -284,7 +284,7 @@ export default function Home() {
                         </h1>
                     </div>
 
-                        <div className="flex bg-white/80 backdrop-blur-md border border-zinc-200/60 shadow-sm p-1.5 rounded-2xl self-center md:self-end">
+                        <div className="flex bg-zinc-900/80 backdrop-blur-md border border-white/10 shadow-sm p-1.5 rounded-2xl self-center md:self-end">
                         <button 
                             onClick={() => setActiveTab('keywords')}
                             className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${activeTab === 'keywords' ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/20' : 'text-zinc-500 hover:text-indigo-600 transition-all'}`}
@@ -401,8 +401,8 @@ export default function Home() {
                         <div className="grid lg:grid-cols-12 gap-8">
                         {/* LEFT: Config Panel */}
                         <div className="lg:col-span-4 space-y-6">
-                            <section className="bg-white border border-zinc-200/60 shadow-sm rounded-3xl p-6 space-y-6">
-                                <h2 className="text-zinc-900 font-bold flex items-center gap-2 px-2">
+                            <section className="bg-zinc-900/40 border border-white/[0.08] shadow-sm rounded-3xl p-6 space-y-6">
+                                <h2 className="text-zinc-100 font-bold flex items-center gap-2 px-2">
                                     <Target className="w-4 h-4 text-indigo-400" />
                                     Deployment Target
                                 </h2>
@@ -465,8 +465,8 @@ export default function Home() {
                                 </div>
                             </section>
 
-                            <section className="bg-white border border-zinc-200/60 shadow-sm rounded-3xl p-6 space-y-6">
-                                <h2 className="text-zinc-900 font-bold flex items-center gap-2 px-2">
+                            <section className="bg-zinc-900/40 border border-white/[0.08] shadow-sm rounded-3xl p-6 space-y-6">
+                                <h2 className="text-zinc-100 font-bold flex items-center gap-2 px-2">
                                     <DollarSign className="w-4 h-4 text-emerald-400" />
                                     Budget & Targeting
                                 </h2>
@@ -513,7 +513,7 @@ export default function Home() {
                                 </div>
                             </section>
 
-                            <section className="bg-white border border-zinc-200/60 shadow-sm rounded-3xl p-6 space-y-6">
+                            <section className="bg-zinc-900/40 border border-white/[0.08] shadow-sm rounded-3xl p-6 space-y-6">
                                 <h2 className="text-zinc-900 font-bold flex items-center justify-between px-2">
                                     <div className="flex items-center gap-2">
                                         <Settings2 className="w-4 h-4 text-emerald-400" />
@@ -554,7 +554,7 @@ export default function Home() {
                         {/* CENTER: AI Review & Deployment */}
                         <div className="lg:col-span-5 space-y-6">
                             {!preScanData ? (
-                                <section className="bg-white border border-zinc-200/60 shadow-sm rounded-3xl p-12 flex flex-col items-center justify-center h-[520px] text-center space-y-6">
+                                <section className="bg-zinc-900/40 border border-white/[0.08] shadow-sm rounded-3xl p-12 flex flex-col items-center justify-center h-[520px] text-center space-y-6">
                                     <div className="w-20 h-20 rounded-full bg-indigo-500/10 flex items-center justify-center">
                                         <Sparkles className="w-10 h-10 text-indigo-400 animate-pulse" />
                                     </div>
@@ -566,7 +566,7 @@ export default function Home() {
                                     </div>
                                 </section>
                             ) : (
-                                <section className="bg-white border border-zinc-200/60 shadow-sm rounded-3xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <section className="bg-zinc-900/40 border border-white/[0.08] shadow-sm rounded-3xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
                                     <div className="px-6 py-4 border-b border-white/[0.05] flex items-center justify-between bg-indigo-500/5">
                                         <div className="flex items-center gap-3">
                                             <Bot className="w-4 h-4 text-indigo-400" />
@@ -702,8 +702,8 @@ export default function Home() {
 
                         {/* RIGHT: Ad Preview */}
                         <div className="lg:col-span-3">
-                            <section className="bg-white border border-zinc-200/60 shadow-sm rounded-3xl p-6 space-y-6 sticky top-12">
-                                <h3 className="text-zinc-900 font-bold flex items-center gap-2 px-1 text-sm uppercase tracking-widest">
+                            <section className="bg-zinc-900/40 border border-white/[0.08] shadow-sm rounded-3xl p-6 space-y-6 sticky top-12">
+                                <h3 className="text-zinc-100 font-bold flex items-center gap-2 px-1 text-sm uppercase tracking-widest">
                                     <Eye className="w-4 h-4 text-indigo-400" />
                                     RSA Visuals
                                 </h3>
@@ -790,7 +790,7 @@ export default function Home() {
 
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 relative z-10 gap-4">
                                     <div className="space-y-1">
-                                        <h3 className="text-zinc-900 font-bold flex items-center gap-2 text-lg">
+                                        <h3 className="text-zinc-100 font-bold flex items-center gap-2 text-lg">
                                             <BarChart3 className="w-5 h-5 text-indigo-400" />
                                             Performance Trends (7 Days)
                                         </h3>
@@ -891,7 +891,7 @@ export default function Home() {
                         </div>
 
                         {/* 3. KEYWORD PERFORMANCE TABLE */}
-                        <section className="bg-white border border-zinc-200/60 rounded-3xl overflow-hidden shadow-sm">
+                        <section className="bg-zinc-900/40 border border-white/[0.08] rounded-3xl overflow-hidden shadow-sm">
                             <div className="px-8 py-6 border-b border-white/[0.05] flex items-center justify-between bg-white/[0.02]">
                                 <h3 className="text-white font-semibold flex items-center gap-2">
                                     <Search className="w-4 h-4 text-emerald-400" />
