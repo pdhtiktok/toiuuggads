@@ -6,8 +6,9 @@ import {
     AlertCircle, Loader2, LayoutDashboard, PlusCircle, BarChart3, 
     TrendingUp, TrendingDown, MousePointer2, Wallet, Wand2, Phone, Link2, 
     Type, ListChecks, Settings2, Eye, ShieldCheck, Search, Sparkles, X, ChevronRight, Check, Users, MapPin, DollarSign,
-    Gauge, FileWarning, ExternalLink
+    Gauge, FileWarning, ExternalLink, LogOut, User as UserIcon
 } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 import AIExpertLab from '@/components/AIExpertLab';
 import KeywordLab, { ResearchedKeyword } from '@/components/KeywordLab';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer } from 'recharts';
@@ -61,6 +62,22 @@ interface Account {
 // Mock data is now generated dynamically by mockDataEngine based on selected account
 
 export default function Home() {
+    const [userEmail, setUserEmail] = useState<string | null>(null);
+
+    useEffect(() => {
+        const getUser = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                setUserEmail(user.email ?? null);
+            }
+        };
+        getUser();
+    }, []);
+
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        window.location.href = '/login';
+    };
     const [activeTab, setActiveTab] = useState<'create' | 'dashboard' | 'keywords'>('dashboard');
     const [selectedCampaign, setSelectedCampaign] = useState<{ id: string, name: string } | null>(null);
     const [approvedKeywords, setApprovedKeywords] = useState<ResearchedKeyword[]>([]);
@@ -282,6 +299,27 @@ export default function Home() {
                         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-white via-white to-zinc-500 bg-clip-text text-transparent">
                             OptimaAds AI
                         </h1>
+                    </div>
+
+                    <div className="flex flex-col md:flex-row items-center gap-4 self-center md:self-end">
+                        {userEmail && (
+                            <div className="flex items-center gap-3 px-4 py-2 rounded-2xl bg-zinc-900/50 border border-white/5">
+                                <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+                                    <UserIcon className="w-4 h-4 text-indigo-400" />
+                                </div>
+                                <div className="text-left hidden sm:block">
+                                    <p className="text-[10px] text-zinc-500 font-medium uppercase tracking-wider">Admin Access</p>
+                                    <p className="text-xs text-zinc-300 font-semibold">{userEmail}</p>
+                                </div>
+                                <button 
+                                    onClick={handleLogout}
+                                    className="ml-2 p-2 rounded-xl text-zinc-500 hover:text-red-400 hover:bg-red-400/10 transition-all group"
+                                    title="Đăng xuất"
+                                >
+                                    <LogOut className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                                </button>
+                            </div>
+                        )}
                     </div>
 
                         <div className="flex bg-zinc-900/80 backdrop-blur-md border border-white/10 shadow-sm p-1.5 rounded-2xl self-center md:self-end">
