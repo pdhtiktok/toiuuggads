@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "schema_version": "1.1.0",
+    "awf_version": "4.0.2"
+  },
+  "project": {
+    "name": "OptimaAds AI (toiuuggads-web)",
+    "type": "Web Application (Dashboard)",
+    "status": "In Development (Deep Optimization Phase Completed)"
+  },
+  "tech_stack": {
+    "frontend": {
+      "framework": "Next.js",
+      "language": "TypeScript",
+      "styling": "TailwindCSS",
+      "components": "Lucide React, Recharts"
+    },
+    "backend": {
+      "framework": "Next.js API Routes",
+      "external_apis": "Google Ads API"
+    }
+  },
+  "database_schema": {
+    "summary": "This app primarily uses Google Ads SDK and internal mock engines to generate data.",
+    "tables": [],
+    "relationships": []
+  },
+  "api_endpoints": [
+    {
+      "path": "/api/account/list",
+      "explained": "Lấy danh sách các tài khoản quảng cáo (trộn tài khoản thật từ Google Ads API và tài khoản demo)"
+    },
+    {
+      "path": "/api/campaign/list?customerId={id}",
+      "explained": "Lấy danh sách Campaign của một account."
+    },
+    {
+      "path": "/api/campaign/analyze/data",
+      "explained": "Kéo keyword metrics thực tế cho 1 campaign cụ thể."
+    }
+  ],
+  "business_rules": [
+    "Dữ liệu demo (mock) sẽ được sinh ra (Context-Aware) tự động hóa dựa trên tên tài khoản, giúp hỗ trợ trình diễn mà không cần data thật.",
+    "Quality Score <= 3: Hệ thống bắt buộc cảnh báo (Bleeding Alert) do tỷ lệ click thấp, lãng phí ngân sách mạnh.",
+    "AI Expert Lab: Không tự ý thiết lập/xóa Ads. Sẽ tạo Proposal, User phải Confirm (Minh bạch dữ liệu)."
+  ],
+  "features": [
+    "Context-Aware Mock Engine: Tự detect ngành từ tên Acc và sinh Keywords/Metrics phù hợp.",
+    "Deep Optimization: Áp Quality Score, CTR expect, LP Experiece, Ad relevance vào bảng đánh giá keyword.",
+    "AI Strategy Lab (AI Diagnostician V2): Tạo chiến lược cho từng Campaign dựa trên Quality Score metrics thay vì Hardcode CPA."
+  ],
+  "knowledge_items": {
+    "patterns": [
+      "Sử dụng useMemo để tính toán mockDataEngine dựa vào việc đổi Context (selectedAccount) nhằm tối ưu hiệu suất Next.js."
+    ],
+    "gotchas": [
+      "Khi dùng account demo, Google Ads API sẽ trả mã lỗi 500 do ID Account không có thực. Cần skip API call và fallback sang Mock Engine."
+    ],
+    "conventions": [
+      "Theme tối, giao diện dùng màu neon, phong cách Enterprise AI (Transparency Guard)."
+    ]
+  }
+}

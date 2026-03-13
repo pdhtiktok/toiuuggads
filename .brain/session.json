@@ -1,0 +1,58 @@
+{
+  "updated_at": "2026-03-12T21:50:00Z",
+  "working_on": {
+    "feature": "Deep Optimization Engine",
+    "task": "Nâng cấp AI Strategy Lab với dữ liệu Context-Aware và Quality Score",
+    "status": "completed",
+    "files": [
+      "src/app/page.tsx",
+      "src/lib/mockDataEngine.ts",
+      "src/components/AIExpertLab.tsx"
+    ],
+    "blockers": [],
+    "notes": "Đã hoàn thành xuất sắc 3 phases: Context-Aware Mock, Deep Metrics (QS), AI Diagnostician V2."
+  },
+  "pending_tasks": [
+    {
+      "task": "Tối ưu Report Search Terms cho từng campaign",
+      "priority": "high",
+      "notes": "Quan trọng cho việc phủ định từ khóa tự động."
+    },
+    {
+      "task": "Tích hợp Google Ads API thật để kéo Quality Score",
+      "priority": "medium",
+      "notes": "Chuyển từ mock engine sang live data."
+    }
+  ],
+  "recent_changes": [
+    {
+      "timestamp": "2026-03-12",
+      "type": "feature",
+      "description": "Tạo Context-Aware Mock Data Engine tự nhận diện ngành nghề từ tên account",
+      "files": ["src/lib/mockDataEngine.ts"]
+    },
+    {
+      "timestamp": "2026-03-12",
+      "type": "feature",
+      "description": "Tích hợp hệ thống phân tích nguyên nhân gốc rễ dựa trên Quality Score vào Dashboard và AI Strategy Lab",
+      "files": ["src/app/page.tsx", "src/components/AIExpertLab.tsx"]
+    }
+  ],
+  "errors_encountered": [
+    {
+      "error": "Google Ads API fails when analyzing demo accounts",
+      "solution": "Implemented a fallback mechanism to use mockDataEngine when isDemoAccount is true.",
+      "resolved": true
+    }
+  ],
+  "decisions_made": [
+    {
+      "decision": "Dùng Mock Engine thay vì Database cứng cho Demo Data",
+      "reason": "Giúp hệ thống linh hoạt phục vụ nhiều ngữ cảnh (Hoa, Trang sức, Sức khỏe...) cho mục đích sales/demo."
+    },
+    {
+      "decision": "Thêm Quality Score làm metric lõi cho AI Diagnostician",
+      "reason": "Giúp AI đưa ra phân tích sâu sắc (root-cause) thay vì chỉ nhìn vào CPA bề nổi."
+    }
+  ]
+}
